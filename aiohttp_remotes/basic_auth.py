@@ -37,7 +37,6 @@ class BasicAuth(ABC):
         request: web.Request,
         handler: Callable[[web.Request], Awaitable[web.StreamResponse]],
     ) -> web.StreamResponse:
-
         if request.path not in self._white_paths:
             auth_header = request.headers.get(hdrs.AUTHORIZATION)
 
